@@ -1,57 +1,58 @@
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import MobileMenu from "./MobileMenu";
 
-export const Navbar = ({menuOpen, setMenuOpen}) => {
-    useEffect(() => {
-        document.body.style.overflow = menuOpen ? "hidden" : ""
-    }, [menuOpen])
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Disable scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
-    <nav className="fixed top-0 w-full z-40 bg-[rgba(10,10,10. 0.8)] backdrop-blur-lg border-b border-white/10 shadow-lg">
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <a href="#home" className="font-mono text-xl font-bold text-white">
-            {""}
-            Maniraj <span className="text-blue-500">Kumar</span>
-            {""}
-          </a>
+    <header className="fixed top-0 w-full z-50 bg-black/60 backdrop-blur-md shadow-md border-b border-white/10">
+      <nav
+        className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"
+        role="navigation"
+        aria-label="Main Navigation"
+      >
+        {/* Logo */}
+        <a href="#home" className="text-white text-2xl font-bold font-mono">
+          Maniraj <span className="text-blue-500">Kumar</span>
+        </a>
 
-          <div className="w-7 h-5 relative cursor-pointer z-40 md:hidden" onClick={() => setMenuOpen((prev) => !prev)}>
-            &#9976;
-          </div>
+        {/* Desktop Nav */}
+        <ul className="hidden md:flex space-x-8 text-gray-300">
+          {["home", "about", "projects", "contact"].map((section) => (
+            <li key={section}>
+              <a
+                href={`#${section}`}
+                className="capitalize hover:text-white transition-colors duration-200"
+              >
+                {section}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#home"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-                {""}
-              Home{""}
-            </a>
+        {/* Mobile Hamburger Icon */}
+        <button
+          onClick={() => setMenuOpen((prev) => !prev)}
+          className="md:hidden text-white text-3xl focus:outline-none z-50"
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+        >
+          &#9776;
+        </button>
+      </nav>
 
-            <a
-              href="#about"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-                {""}
-              About{""}
-            </a>
-            <a
-              href="#projects"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-                {""}
-              Projects{""}
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-                {""}
-              Contact{""}
-            </a>
-            
-          </div>
-        </div>
-      </div>
-    </nav>
+      {/* Mobile Menu Component */}
+      <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+    </header>
   );
 };
+
+export default Navbar;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { LoadingScreen } from "./components/LoadingScreen";
 import "./index.css";
-import { Navbar } from "./components/Navbar";
+import  Navbar  from "./components/Navbar";
 import MobileMenu from "./components/MobileMenu";
 import Home from "./components/section/Home";
 import About from "./components/section/About";

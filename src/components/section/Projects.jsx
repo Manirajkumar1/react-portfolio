@@ -1,4 +1,5 @@
 import React from "react";
+import { FiExternalLink } from "react-icons/fi";
 
 const projectData = [
   {
@@ -39,28 +40,36 @@ const Projects = () => {
           {projectData.map((project, index) => (
             <div
               key={index}
-              className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_0_15px_rgba(59,130,246,0.1)] transition-all"
+              className="group relative bg-white/5 rounded-2xl border border-white/10 p-6 backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(59,130,246,0.2)] flex flex-col justify-between"
             >
-              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <p className="text-gray-400 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.techStack.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="bg-blue-500/10 text-blue-400 py-1 px-4 rounded-full text-sm hover:bg-blue-500/20 transition"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-gray-400 mb-4 text-sm">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.techStack.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="bg-blue-500/10 text-blue-300 py-1 px-3 rounded-full text-xs hover:bg-blue-500/20 transition"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="flex justify-between items-center mt-2">
+
+              <div className="mt-auto flex justify-end">
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                  className="flex items-center gap-2 text-blue-400 text-sm hover:text-blue-300 transition-colors"
                 >
-                  View Project
+                  View Project <FiExternalLink className="mt-0.5" />
                 </a>
               </div>
             </div>
