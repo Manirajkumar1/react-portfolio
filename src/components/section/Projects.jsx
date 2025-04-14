@@ -3,25 +3,25 @@ import { FiExternalLink } from "react-icons/fi";
 
 const projectData = [
   {
-    title: "E-Learning Platform",
+    title: "E-Learning Management System",
     description:
-      "A responsive e-learning web app where users can register, login, and access learning resources. Built using the MERN stack and deployed live.",
-    techStack: ["React", "Node.js", "MongoDB", "Express.js"],
+      "A full-stack e-learning platform with course browsing, user authentication, and secure course purchase. Includes role-based access (Admin/Student), 50+ course management, and a responsive UI. Deployed on Render.",
+    techStack: ["React.js", "Redux Toolkit", "Node.js", "Express.js", "MongoDB"],
     link: "https://e-learning-ebrd.onrender.com/",
   },
   {
-    title: "Space Explorer App",
+    title: "Healthcare Appointment System",
     description:
-      "An interactive app that shows space facts, NASA images, and astronomical data using public APIs. Built for science lovers and aspiring space YouTubers.",
-    techStack: ["React", "API", "Framer Motion"],
-    link: "#",
+      "Responsive appointment booking app with real-time doctor availability tracking. Built using Context API and Tailwind CSS to ensure smooth user experience across devices.",
+    techStack: ["React.js", "Tailwind CSS", "Context API"],
+    link: "https://heritage-nine-phi.vercel.app/",
   },
   {
-    title: "MERN Dev Portfolio",
+    title: "Restaurant Management System",
     description:
-      "A sleek dark-themed portfolio featuring space illustrations, interactive animations, and detailed info about skills, projects, and journey.",
-    techStack: ["React", "TailwindCSS", "GSAP", "Framer Motion"],
-    link: "#",
+      "Mobile-first restaurant website with menu filtering and shopping cart. Load time optimized by 15% through efficient JavaScript techniques.",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    link: "https://github.com/Manirajkumar1/Restaurant",
   },
 ];
 
